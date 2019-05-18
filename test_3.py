@@ -30,12 +30,16 @@ class TestowanieAplikacji(unittest.TestCase):
         el2 = self.driver.find_element_by_xpath("//android.widget.TextView[@content-desc='3. Preference dependencies']")
         el2.click()
         time.sleep(1)
-        checkbox = self.driver.find_element_by_class_name("android.widget.CheckBox")
-        checkbox.click()
-        self.assertIsNotNone(checkbox)
-        time.sleep(3)
+        #checkbox = self.driver.find_element_by_class_name("android.widget.CheckBox")
+        #checkbox.click()
+        #self.assertIsNotNone(checkbox)
+        #time.sleep(3)
 
-
+        elements = self.driver.find_elements_by_android_uiautomator("new UiSelector().checkable(true)")
+        amount_of_checkboxes = len(elements)
+        print "Checkboksow jest:"
+        print amount_of_checkboxes
+        elements[0].click()
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestowanieAplikacji)
