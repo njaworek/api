@@ -40,6 +40,19 @@ class TestowanieAplikacji(unittest.TestCase):
         print "Checkboksow jest:"
         print amount_of_checkboxes
         elements[0].click()
+        el3 = self.driver.find_element_by_xpath("//android.widget.TextView[@text='WiFi settings']")
+        el3.click()
+        els = self.driver.find_element_by_class_name('android.widget.EditText')
+        els.send_keys("12345")
+        ok = self.driver.find_element_by_id("button1")
+        ok.click()
+        self.driver.keyevent(4)
+        time.sleep(1)
+        self.driver.keyevent(4)
+        time.sleep(1)
+        self.driver.keyevent(4)
+        time.sleep(1)
+
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestowanieAplikacji)
